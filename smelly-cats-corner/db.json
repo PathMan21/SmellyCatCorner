@@ -1,20 +1,19 @@
 {
   "shop": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Friends collector de la première saison à la dernière !",
-      "img": "https://www.dominos.fr/ManagedAssets/FR/product/PCNR/FR_PCNR_fr_menu_12472.png?v-1736087109",
+      "img": "https://www.serieously.com/app/uploads/2020/06/Ross-bronzage-Friends.jpg",
       "prix": "30.99 $",
       "description": "Lot de DVD friends d'occasion"
-    
     }
   ],
   "user": [
     {
-      "id": 1,
+      "id": "1",
       "nom": "Lafosse",
       "prenom": "Manon",
-      "PanierID": []   
+      "PanierID": []
     }
   ]
 }
