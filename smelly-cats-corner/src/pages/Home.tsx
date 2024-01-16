@@ -2,10 +2,17 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
+import Quizz from './Quizz';
+import { IonButton } from '@ionic/react';
 
 const Home: React.FC = () => {
 
   const { name } = useParams<{ name: string; }>();
+
+    const redirigerVersQuizz = () => {
+        // Utilisez la méthode push de history pour rediriger vers la page Quizz
+        document.location = '/Quizz';
+    }
 
   return (
     <IonPage>
@@ -25,6 +32,8 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name={name} />
+
+          <IonButton onClick={redirigerVersQuizz}>Quizz</IonButton>
       </IonContent>
     </IonPage>
   );
