@@ -24,7 +24,7 @@ const Friends: React.FC = () => {
         useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await fetch("https://friends-v1ol.onrender.com/allFriends");
+                    const response = await fetch("https://friends-v1ol.onrender.com/friends");
 
                     if (!response.ok) {
                         throw new Error('Failed to fetch data');
@@ -62,7 +62,7 @@ const Friends: React.FC = () => {
                         {friends.map((friend, index) => (
                             <IonCol key={index} className='itemFriend'>
                                 <h2>{friend.name}</h2>
-                                <p><img className="img-friend" src={"https://friends-v1ol.onrender.com/" + friend.photoPath}></img></p>
+                                <p><img className="img-friend" src={friend.photoPath}></img></p>
                                 <p><span className="sex">{(friend.sex == "male") ? "\u2642" : "\u2640"}</span></p>
                                 <p>{friend.birthDate}</p>
                                 <p>{friend.actorName}</p>

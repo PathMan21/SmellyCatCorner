@@ -67,6 +67,7 @@
     border-radius: 8px;
     box-shadow: 0 0 20px #555555;
     transition: all 0.1s;
+    object-fit: cover;
 }
 
 .sex{
