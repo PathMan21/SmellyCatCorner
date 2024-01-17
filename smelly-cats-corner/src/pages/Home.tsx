@@ -4,6 +4,7 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 import Quizz from './Quizz';
 import { IonButton } from '@ionic/react';
+import Menu from '../components/menu';
 
 const Home: React.FC = () => {
 
@@ -32,7 +33,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name={name} />
-
+          <Menu></Menu>
           <IonButton onClick={redirigerVersQuizz}>Quizz</IonButton>
       </IonContent>
     </IonPage>

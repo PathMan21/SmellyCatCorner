@@ -1,0 +1,50 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Page1 from '../pages/page1';
+import Admin from '../pages/admin';
+
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenu,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from '@ionic/react';
+import "./menu.css";
+
+function Menu() {
+  return (
+    <Router>
+      <IonMenu contentId="main-content">
+        <IonHeader>
+          <IonToolbar>
+          <IonTitle className="titreToolbar" slot="start"><h2>Menu</h2></IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+        <Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
+        <Link className="menuItem" to="/pages/admin">Admin</Link><br/>
+        </IonContent>
+      </IonMenu>
+      <IonPage id="main-content">
+        <IonHeader>
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonMenuButton></IonMenuButton>
+            </IonButtons>
+            <IonTitle className="titreToolbar" slot="start"><h2>The Pizza Del Angelina !</h2></IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <Switch>
+          <Route exact path="/pages/page1" component={Page1}/>
+          <Route exact path="/pages/admin" component={Admin} />
+        </Switch>
+      </IonPage>
+    </Router>
+  );
+}
+
+export default Menu;
