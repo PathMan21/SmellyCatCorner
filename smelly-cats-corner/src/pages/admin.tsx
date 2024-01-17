@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonInput, IonItem, IonList, IonToolbar, IonTitle, IonButton } from '@ionic/react';
+import { IonContent, IonInput, IonItem, IonList, IonToolbar, IonTitle, IonButton, IonCol, IonGrid } from '@ionic/react';
 import "../theme/admin-style.css";
 import SHOP from "../../db.json";
 
@@ -121,26 +121,28 @@ function Admin() {
         </IonList>
 
         <IonToolbar>
-            <IonTitle>Modification</IonTitle>
+            <IonTitle>Suppression</IonTitle>
             
         </IonToolbar>
 
+
+        <IonGrid className='containerPizza'>
         {
             SHOP.shop.map( (shopEntree) => {
-            
             return(
-                <>
-                <div className='suppression'>
-                {shopEntree.title}
-                {shopEntree.id}
+                <IonCol className='itemPizza'>
+                <img src={shopEntree.img}></img>
+                <h2>{shopEntree.title}</h2>
+                <p>{shopEntree.description}</p>
+                <p>{shopEntree.prix}</p>
                 <button onClick={() => handleDelete(shopEntree.id)}>Delete</button>
-                </div>
-                </>
+                </IonCol>
                 
                 )
             })
         }
 
+    </IonGrid>
 
       </IonContent>
       )

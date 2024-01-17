@@ -15,7 +15,7 @@
     flex-basis: 300px;
     flex-grow: 0;
     flex-shrink: 0;
-    background-color: lightyellow;
+    background-color:#8E43F0;
     border-radius: 10px;
     margin: 10px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un meilleur effet visuel */
@@ -23,6 +23,7 @@
 
 
 }
+
 
 
 .itemPizza img {
