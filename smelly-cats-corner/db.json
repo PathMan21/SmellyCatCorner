@@ -1,11 +1,11 @@
 {
   "shop": [
     {
-      "id": "1",
-      "title": "Friends collector de la première saison à la dernière !",
-      "img": "https://www.serieously.com/app/uploads/2020/06/Ross-bronzage-Friends.jpg",
-      "prix": "30.99 $",
-      "description": "Lot de DVD friends d'occasion"
+      "id": "efbd",
+      "title": "Affiche de Ross",
+      "prix": "12 $",
+      "description": "",
+      "img": "https://www.serieously.com/app/uploads/2020/06/Ross-pantalon-cuir-Friends.jpg"
     }
   ],
   "user": [

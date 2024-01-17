@@ -1,0 +1,23 @@
+.suppression {
+margin-left: 20px;
+width: auto;
+
+
+}
+
+.suppression button {
+    margin-left: 10px;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: auto;
+    font-size: 20px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.suppression button:hover {
+
+    transition: 0.3s;
+    transform: scale(1.2);
+}
