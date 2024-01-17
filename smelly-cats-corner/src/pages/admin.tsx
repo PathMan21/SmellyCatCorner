@@ -1,25 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IonContent, IonInput, IonItem, IonList, IonToolbar, IonTitle, IonButton } from '@ionic/react';
 import "../theme/admin-style.css";
+import SHOP from "../../db.json";
+
+interface ShopData {
+    id: string;
+    title: string;
+    prix: string;
+    description: string;
+    img: string;
+}
 
 interface formValue {
     title: string;
     prix: string;
     description: string;
     img: string;
-  }
-  
+}
 
 function Admin() {
-
+    const [boutonChangement, setBoutonChangement] = useState("Ajouter");
+    const [donnees, setDonnees] = useState<ShopData[]>([]);
     const [value, setValue] = useState<formValue>({
         title: "",
         prix: "",
         description: "",
         img: ""
-
     });
 
+    useEffect(() => {
+        setDonnees(SHOP.shop);
+    }, []);
+
+    const handleDelete = async (id: string) => {
+        // Suppression côté client
+        const newArray = donnees.filter(item => item.id !== id);
+        setDonnees(newArray);
+
+        // Suppression côté serveur (si nécessaire)
+        try {
+            const response = await fetch(`http://localhost:3000/shop/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete data');
+            }
+        } catch (error) {
+            console.error('Error deleting data:', error);
+        }
+    }
 
     const handleInput = (event: CustomEvent, fieldName: keyof formValue) => {
         const newValue = { ...value, [fieldName]: event.detail.value ?? '' };
@@ -28,10 +61,8 @@ function Admin() {
       };
 
     const handleSubmit = async () => {
-        console.log("valeur de l'input : " + value);
 
         try {
-        
         let response = await fetch('http://localhost:3000/shop', {
                 method: 'POST',
                 headers: {
@@ -39,7 +70,14 @@ function Admin() {
                 },
                 body: JSON.stringify(value),
         });
-                            
+                         
+        //effet bouton
+        setBoutonChangement("Item ajouté !");
+        setTimeout(() => {
+        setBoutonChangement("Ajouter");
+
+        }, 1000);
+
         if (!response.ok) {
             throw new Error('Failed to fetch data');
           }
@@ -79,8 +117,31 @@ function Admin() {
                 <IonInput id="image" label="Image" placeholder="https://...." onIonChange={(e) => handleInput(e, 'img')}></IonInput>
             </IonItem>
 
-            <IonButton onClick={handleSubmit}>Ajouter</IonButton>
+            <IonButton id="boutonAjout" onClick={handleSubmit}>{boutonChangement}</IonButton>
         </IonList>
+
+        <IonToolbar>
+            <IonTitle>Modification</IonTitle>
+            
+        </IonToolbar>
+
+        {
+            SHOP.shop.map( (shopEntree) => {
+            
+            return(
+                <>
+                <div className='suppression'>
+                {shopEntree.title}
+                {shopEntree.id}
+                <button onClick={() => handleDelete(shopEntree.id)}>Delete</button>
+                </div>
+                </>
+                
+                )
+            })
+        }
+
+
       </IonContent>
       )
 };
