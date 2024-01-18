@@ -13,7 +13,6 @@ const Home: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
         <Menu/>
-          <IonImg className="friends-title-img" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
       </IonContent>
     </IonPage>
   );
