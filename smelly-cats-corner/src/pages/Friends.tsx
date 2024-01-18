@@ -1,8 +1,6 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonImg } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonImg } from '@ionic/react';
 import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
 import './Friends.css';
-import Details from './Details';
 
 import React, { useState, useEffect } from 'react';
 import { IonCol, IonGrid, IonRow } from '@ionic/react';
@@ -42,9 +40,9 @@ const Friends: React.FC = () => {
         }, []); // Tableau de dépendances vide pour un effet se produisant une seule fois au montage
 
     const { name } = useParams<{ name: string; }>();
-    const details = () => {
+    const details = (id) => {
         // Utilisez la méthode push de history pour rediriger vers la page des détails des Friends
-        document.location = '/Details';
+        document.location = `/Details/${id}`;
     }
 
     return (
@@ -67,7 +65,7 @@ const Friends: React.FC = () => {
                                 <p>{friend.birthDate}</p>
                                 <p>{friend.actorName}</p>
                                 <p>{friend.hairColor}</p>
-                                <button onClick={details}>Voir plus de détails</button>
+                                <button onClick={() => details(friend.id)}>Voir plus de détails</button>
                             </IonCol>
                         ))}
                     </IonRow>
