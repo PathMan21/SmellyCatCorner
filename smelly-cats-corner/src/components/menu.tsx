@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Page1 from '../pages/page1';
 import Admin from '../pages/admin';
 import Friends from '../pages/Friends';
+import GestionFriends from '../pages/GestionFriends';
 
 import {
   IonButtons,
@@ -29,6 +30,7 @@ function Menu() {
         <Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
         <Link className="menuItem" to="/pages/admin">Admin</Link><br/>
         <Link className="menuItem" to="/pages/Friends">Friends</Link><br/>
+          <Link className="menuItem" to="/pages/GestionFriends">Gestion</Link><br/>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
@@ -44,6 +46,7 @@ function Menu() {
           <Route exact path="/pages/page1" component={Page1}/>
           <Route exact path="/pages/Friends" component={Friends}/>
           <Route exact path="/pages/admin" component={Admin} />
+          <Route exact path="/pages/GestionFriends" component={GestionFriends} />
         </Switch>
       </IonPage>
     </Router>

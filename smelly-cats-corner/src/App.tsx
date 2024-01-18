@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Friends from './pages/Friends';
 import Details from './pages/Details';
 import './pages/Details.css';
+import GestionFriends from './pages/GestionFriends';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,6 +46,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/details/:id" component={Details} />
             <Details />
+            <Route path="/GestionFriends" exact={true}>
+              <GestionFriends />
+            </Route>
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
