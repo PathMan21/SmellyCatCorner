@@ -33,8 +33,8 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name={name} />
-          <Menu/>
-          <IonButton onClick={redirigerVersFriends}>Friends</IonButton>
+        <Menu/>
+
       </IonContent>
     </IonPage>
   );
