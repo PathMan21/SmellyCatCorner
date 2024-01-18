@@ -2,6 +2,7 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
+import Friends from "./Friends";
 import { IonButton } from '@ionic/react';
 import Menu from '../components/menu';
 
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
   const { name } = useParams<{ name: string; }>();
 
     const redirigerVersFriends = () => {
+        // Utilisez la méthode push de history pour rediriger vers la page Friends
         document.location = '/Friends';
     }
 
@@ -31,7 +33,8 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name={name} />
-          <Menu></Menu>
+          <Menu/>
+          <IonButton onClick={redirigerVersFriends}>Friends</IonButton>
       </IonContent>
     </IonPage>
   );

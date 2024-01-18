@@ -1,7 +1,11 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Home from './pages/Home';
+import Friends from './pages/Friends';
+import Details from './pages/Details';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,6 +40,11 @@ const App: React.FC = () => {
             <Route path="/home" exact={true}>
               <Home />
             </Route>
+            <Route path="/friends" exact={true}>
+              <Friends />
+            </Route>
+            <Route path="/details/:id" component={Details} />
+            <Details />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
