@@ -37,7 +37,7 @@ function Menu() {
             <IonButtons slot="start">
               <IonMenuButton></IonMenuButton>
             </IonButtons>
-            <IonTitle className="titreToolbar" slot="start"><h2>The Pizza Del Angelina !</h2></IonTitle>
+            <IonTitle className="titreToolbar" slot="start"><h2>Smelly Cat's Corner</h2></IonTitle>
           </IonToolbar>
         </IonHeader>
         <Switch>

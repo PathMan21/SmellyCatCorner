@@ -17,14 +17,6 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>SmellyCatsCorner</IonTitle>
-        </IonToolbar>
-      </IonHeader>
 
       <IonContent fullscreen>
         <IonHeader collapse="condense">
@@ -34,7 +26,6 @@ const Home: React.FC = () => {
         </IonHeader>
         <ExploreContainer name={name} />
         <Menu/>
-
       </IonContent>
     </IonPage>
   );
