@@ -50,9 +50,8 @@ const Page1: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-      </IonHeader>
       <IonContent className="ion-padding">
+      <h2></h2>
         <IonGrid className='containerPizza'>
           <IonRow>
             {pizza.map((entree: Pizza, index: number) => (

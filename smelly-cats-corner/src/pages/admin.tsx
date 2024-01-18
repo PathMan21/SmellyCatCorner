@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonInput, IonItem, IonList, IonToolbar, IonTitle, IonButton } from '@ionic/react';
+import { IonContent, IonInput, IonItem, IonList, IonToolbar, IonTitle, IonButton, IonCol, IonGrid } from '@ionic/react';
 import "../theme/admin-style.css";
 import SHOP from "../../db.json";
 
@@ -33,9 +33,11 @@ function Admin() {
     }, []);
 
     const handleDelete = async (id: string) => {
+        // Suppression côté client
         const newArray = donnees.filter(item => item.id !== id);
         setDonnees(newArray);
 
+        // Suppression côté serveur (si nécessaire)
         try {
             const response = await fetch(`http://localhost:3000/shop/${id}`, {
                 method: 'DELETE',
