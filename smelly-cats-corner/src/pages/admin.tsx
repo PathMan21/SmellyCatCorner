@@ -123,6 +123,7 @@ function Admin() {
         <IonToolbar>
             <IonTitle>Suppression</IonTitle>
             
+            
         </IonToolbar>
 
 
