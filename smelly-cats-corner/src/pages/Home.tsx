@@ -1,31 +1,19 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {IonButtons, IonContent, IonHeader, IonImg, IonMenuButton, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
-import Friends from "./Friends";
-import { IonButton } from '@ionic/react';
 import Menu from '../components/menu';
+import React from "react";
 
 const Home: React.FC = () => {
 
   const { name } = useParams<{ name: string; }>();
 
-    const redirigerVersFriends = () => {
-        // Utilisez la méthode push de history pour rediriger vers la page Friends
-        document.location = '/Friends';
-    }
-
   return (
     <IonPage>
-
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name={name} />
         <Menu/>
+          <IonImg className="friends-title-img" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
       </IonContent>
     </IonPage>
   );

@@ -32,12 +32,14 @@ const Details = () => {
         <div>
             {friendDetails ? (
                 <div className="details-container">
-                    <img src={friendDetails.photoPath} alt={`Photo de ${friendDetails.name}`} className="friend-photo" /><br />
                     <div className="friend-name">{friendDetails.name}</div>
+                    <img src={friendDetails.photoPath} alt={`Photo de ${friendDetails.name}`} className="friend-photo" /><br />
                     <div className="friend-actor-name">({friendDetails.actorName})</div>
-                    <div className="friend-birthDate">{friendDetails.birthDate}</div>
+                    <div className="friend-birthDate"><i>{friendDetails.birthDate}</i></div>
                     <div className="friend-sex">{(friendDetails.sex === "male") ? "♂" : "♀"}</div>
                     <div className="friend-hairColor">Couleur de cheveux : {friendDetails.hairColor}</div>
+                    <div className="friend-description"> {friendDetails.description}</div>
+                    <div className="friend-video"><a target="_new" href={friendDetails.video}>Vidéo</a></div>
                     <button className="friend-button" onClick={retour}>Retourner à la page des friends</button>
                 </div>
             ) : (

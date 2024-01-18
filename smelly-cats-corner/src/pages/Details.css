@@ -5,17 +5,15 @@
     color: #333;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px mediumpurple;
+    box-shadow: 0 0 15px #5F34B3;
     background-color: mediumpurple;
-    width: 300px;
+    width: 500px;
     margin: 60px auto;
-
-
 }
 
 /* Style pour la photo de l'ami */
 .friend-photo {
-    max-width: 200px; /* Limite la taille de l'image */
+    max-width: 400px; /* Limite la taille de l'image */
     border-radius: 10px; /* Coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
     margin-bottom: 20px; /* Espace sous l'image */
@@ -23,16 +21,18 @@
 
 /* Style pour le nom de l'ami */
 .friend-name {
+    font-family: "Palatino Linotype";
     color: #fff;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 /* Style pour le nom de l'acteur */
 .friend-actor-name {
+    font-family: "Palatino Linotype";
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -72,3 +72,15 @@
     transform: scale(1.2);
     background-color: purple;
 }
+
+.friend-description{
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.scroll{
+    overflow: auto;
+}
+

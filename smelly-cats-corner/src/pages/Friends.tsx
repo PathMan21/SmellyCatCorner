@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonToolbar, IonImg } from '@ionic/react';
+import {IonContent, IonHeader, IonPage, IonToolbar, IonImg, IonButton} from '@ionic/react';
 import { useParams } from 'react-router';
 import './Friends.css';
 
@@ -50,6 +50,7 @@ const Friends: React.FC = () => {
             <IonHeader>
                 <IonToolbar>
                     <IonImg className="friends-title" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
+                    <IonButton className="homeButton" href="/Home">Home</IonButton>
                 </IonToolbar>
             </IonHeader>
 
@@ -61,10 +62,9 @@ const Friends: React.FC = () => {
                             <IonCol key={index} className='itemFriend'>
                                 <h2>{friend.name}</h2>
                                 <p><img className="img-friend" src={friend.photoPath}></img></p>
-                                <p><span className="sex">{(friend.sex == "male") ? "\u2642" : "\u2640"}</span></p>
-                                <p>{friend.birthDate}</p>
                                 <p>{friend.actorName}</p>
-                                <p>{friend.hairColor}</p>
+                                <p>{friend.birthDate}</p>
+                                <p><span className="sex">{(friend.sex == "male") ? "\u2642" : "\u2640"}</span></p>
                                 <button onClick={() => details(friend.id)}>Voir plus de détails</button>
                             </IonCol>
                         ))}

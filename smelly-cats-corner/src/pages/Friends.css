@@ -18,22 +18,19 @@
     margin: 10px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
-
-
 }
 
 
 .itemFriend h2 {
-    color: #0d0d0d;
+    font-family: "Palatino Linotype";
+    color: #fff;
     font-size: 30px;
     font-weight: bold;
     margin: 10px 0 10px 0;
-
 }
 
 .itemFriend p {
-    color: #0d0d0d;
-    font-family: 'Mukta', sans-serif;
+    color: #fff;
     font-size: 14px;
     margin: 0 0 10px 0;
 
@@ -55,13 +52,14 @@
 }
 
 .friends-title{
+    color: #fff;
     margin: auto;
     width: 50%;
 }
 
 .img-friend{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 0 20px #555555;
@@ -70,5 +68,15 @@
 }
 
 .sex{
+    color: #fff;
     font-size: 40px;
+}
+
+.homeButton{
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    border-radius: 6px;
+    background-color: rebeccapurple !important;
+    border-style: none;
 }
