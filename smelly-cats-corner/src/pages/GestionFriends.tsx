@@ -24,7 +24,7 @@ const GestionFriends = () => {
         try {
             console.log("-------------------");
             console.log(JSON.stringify(friend));
-            let response = await fetch('http://friends-v1ol.onrender.com/friends', {
+            let response = await fetch('http://localhost:3000/friends', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,69 +46,85 @@ const GestionFriends = () => {
 
     return (
         <div className="form-container">
+            <label>Id du friend :
             <input
                 type="string"
                 name="id"
                 value={friend.id}
                 onChange={handleChange}
                 placeholder="Id"
-            />
+            /></label>
+
+            <label>Nom du friend :
             <input
                 type="text"
                 name="name"
                 value={friend.name}
                 onChange={handleChange}
                 placeholder="Nom"
-            />
-            <select
+            /></label>
+
+            <label>Sexe du friend:
+                <select
                 name="sex"
                 value={friend.sex}
                 onChange={handleChange}
             >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-            </select>
+            </select></label>
+
+            <label>Date de naissance du friend:
             <input
                 type="date"
                 name="birthDate"
                 value={friend.birthDate}
                 onChange={handleChange}
-            />
+            /></label>
+            <label>Couleur de cheveux du friend:
             <input
                 type="text"
                 name="hairColor"
                 value={friend.hairColor}
                 onChange={handleChange}
                 placeholder="Couleur de cheveux"
-            />
+            /></label>
+            <label>Nom de l'acteur:
             <input
                 type="text"
                 name="actorName"
                 value={friend.actorName}
                 onChange={handleChange}
                 placeholder="Nom de l'acteur"
-            />
+            /></label>
+
+            <label>Photo du friend:
             <input
                 type="text"
                 name="photoPath"
                 value={friend.photoPath}
                 onChange={handleChange}
                 placeholder="Photo"
-            />
+            /></label>
+
+            <label>Video du friend:
             <input
                 type="text"
                 name="video"
                 value={friend.video}
                 onChange={handleChange}
                 placeholder="Video"
-            />
+            /></label>
+
+            <label>Description du friend:
             <input
                 type="text"
                 name="description"
                 value={friend.description}
                 onChange={handleChange}
                 placeholder="Description"
-            />
+            /></label>
+
             <button className="add-button" onClick={handleFormSubmit}>Ajouter un ami</button>
         </div>
     );

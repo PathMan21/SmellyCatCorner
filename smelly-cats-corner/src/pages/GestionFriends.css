@@ -5,22 +5,31 @@
     padding: 20px;
     border-radius: 10px;
     background-color: mediumpurple;
+    box-shadow: 0 0 15px rebeccapurple;
+    overflow: auto;
 }
 
 /* Style des champs du formulaire */
 .form-container input[type="text"],
 .form-container input[type="date"],
+.form-container input[type="string"],
 .form-container select {
+    background-color: #C9B2F4;
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
+    color: black;
 }
 
 /* Style du label */
 .form-container label {
     display: block;
     margin-bottom: 5px;
+    color: black;
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Style du bouton */
