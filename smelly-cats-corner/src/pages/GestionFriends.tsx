@@ -1,57 +1,116 @@
-import {IonContent, IonHeader, IonPage, IonToolbar, IonImg, IonButton} from '@ionic/react';
-import { useParams } from 'react-router';
+import React, { useState } from 'react';
+import './GestionFriends.css';
 
+const GestionFriends = () => {
+    const [friend, setFriend] = useState({
+        id: Math.random().toString(36).substr(2, 9),
+        name: "test",
+        sex: "male",
+        birthDate: "1990-12-04",
+        hairColor: "test",
+        actorName: "test",
+        photoPath: "test",
+        video: "tst",
+        description: "test"
+    });
 
-import React, { useState, useEffect } from 'react';
-import { IonCol, IonGrid, IonRow } from '@ionic/react';
+    const handleChange = (e) => {
+        console.log("*******************");
+        setFriend({ ...friend, [e.target.name]: e.target.value });
+    };
 
-interface GestionFriends {
-    id: number;
-    title: string;
-    question: string;
-    response: string;
-}
+    const handleFormSubmit = async () => {
 
+        try {
+            console.log("-------------------");
+            console.log(JSON.stringify(friend));
+            let response = await fetch('http://friends-v1ol.onrender.com/friends', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(friend),
+            });
 
-
-const GestionFriends: React.FC = () => {
-
-    const [friends, setFriends] = useState([]);
-
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("https://friends-v1ol.onrender.com/friends");
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-                const jsonData = await response.json();
-                setFriends(jsonData);
-            } catch (error) {
-                console.error('Error fetching data:', error);
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP! statut: ${response.status}`);
             }
 
-        };
-
-        fetchData(); // Appel de la fonction fetchData() à l'intérieur de useEffect
-
-    }, []); // Tableau de dépendances vide pour un effet se produisant une seule fois au montage
-
-    const { name } = useParams<{ name: string; }>();
+            const result = await response.json();
+            console.log(result);
+            console.log("Votre friend a été ajouté avec succès !");
+        } catch (error) {
+            console.error("Erreur lors de l'ajout d'un ami: ", error);
+        }
+    };
 
     return (
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonImg className="friends-title" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
-                    <IonButton className="homeButton" href="/Home">Home</IonButton>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent className="ion-padding">
-            </IonContent>
-        </IonPage>
+        <div className="form-container">
+            <input
+                type="string"
+                name="id"
+                value={friend.id}
+                onChange={handleChange}
+                placeholder="Id"
+            />
+            <input
+                type="text"
+                name="name"
+                value={friend.name}
+                onChange={handleChange}
+                placeholder="Nom"
+            />
+            <select
+                name="sex"
+                value={friend.sex}
+                onChange={handleChange}
+            >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <input
+                type="date"
+                name="birthDate"
+                value={friend.birthDate}
+                onChange={handleChange}
+            />
+            <input
+                type="text"
+                name="hairColor"
+                value={friend.hairColor}
+                onChange={handleChange}
+                placeholder="Couleur de cheveux"
+            />
+            <input
+                type="text"
+                name="actorName"
+                value={friend.actorName}
+                onChange={handleChange}
+                placeholder="Nom de l'acteur"
+            />
+            <input
+                type="text"
+                name="photoPath"
+                value={friend.photoPath}
+                onChange={handleChange}
+                placeholder="Photo"
+            />
+            <input
+                type="text"
+                name="video"
+                value={friend.video}
+                onChange={handleChange}
+                placeholder="Video"
+            />
+            <input
+                type="text"
+                name="description"
+                value={friend.description}
+                onChange={handleChange}
+                placeholder="Description"
+            />
+            <button className="add-button" onClick={handleFormSubmit}>Ajouter un ami</button>
+        </div>
     );
 };
 

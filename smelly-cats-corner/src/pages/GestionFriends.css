@@ -1,0 +1,40 @@
+/* Style du conteneur du formulaire */
+.form-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: mediumpurple;
+}
+
+/* Style des champs du formulaire */
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+/* Style du label */
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style du bouton */
+.add-button{
+    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    background-color: rebeccapurple;
+    border-style: none;
+    cursor: pointer;
+}
+
+.add-button:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    background-color: purple;
+}
