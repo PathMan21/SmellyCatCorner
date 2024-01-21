@@ -1,0 +1,7 @@
+{
+  "name": "SmellyCat'sCorner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

@@ -1,0 +1,86 @@
+/* Style général de la page de détails */
+.details-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #5F34B3;
+    background-color: mediumpurple;
+    width: 500px;
+    margin: 60px auto;
+}
+
+/* Style pour la photo de l'ami */
+.friend-photo {
+    max-width: 400px; /* Limite la taille de l'image */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 20px; /* Espace sous l'image */
+}
+
+/* Style pour le nom de l'ami */
+.friend-name {
+    font-family: "Palatino Linotype";
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style pour le nom de l'acteur */
+.friend-actor-name {
+    font-family: "Palatino Linotype";
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style pour la date de naissance */
+.friend-birthDate {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Style pour le sexe */
+.friend-sex {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style pour la couleur des cheveux */
+.friend-hairColor {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.friend-button{
+    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    background-color: rebeccapurple;
+    border-style: none;
+    cursor: pointer;
+}
+
+.friend-button:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    background-color: purple;
+}
+
+.friend-description{
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.scroll{
+    overflow: auto;
+}
+
