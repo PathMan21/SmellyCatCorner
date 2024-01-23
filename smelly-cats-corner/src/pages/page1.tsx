@@ -5,7 +5,8 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonButton
+  IonButton,
+  IonCard,
 } from '@ionic/react';
 import { IonCol, IonGrid, IonRow } from '@ionic/react';
 import '../theme/page.css';
@@ -14,33 +15,33 @@ interface Pizza {
   id: number;
   title: string;
   img: string;
-  prix: string;
+  prix: number;
   description: string;
+  quantity: number;
 }
 
 const Page1: React.FC = () => {
 const [pizza, setPizza] = useState([]);
-
-// Pour aller chercher les pizzas dans le back
-
-
-  const [panier, setPanier] = useState([]);
+const [panier, setPanier] = useState([]);
 
 
 
-  const dataStorage = async (titleParam: string, prixParam: string, imgParam: string) => {
+  const dataStorage = async (titleParam: string, prixParam: number, imgParam: string, indexParam: number, quantityParam: number, descriptionParam: string) => {
     const item = {
       title: titleParam,
       prix: prixParam,
-      img: imgParam
+      img: imgParam,
+      id: indexParam,
+      quantity: quantityParam,
+      description: descriptionParam
   };
-    console.log('Commande effectuée pour :', titleParam, 'au prix de :', prixParam, 'avec l"image :', imgParam);
+    console.log('Commande effectuée pour :', titleParam, 'au prix de :', prixParam, 'avec l"image :', imgParam, "index : ", indexParam, "quantity : ", quantityParam);
 
     const updatePanier = [...panier, item];
     setPanier(updatePanier);
 
-
-  localStorage.setItem('cart', JSON.stringify(panier));
+  sessionStorage.setItem('cart', JSON.stringify(updatePanier));
+  
 };
 
 
@@ -68,24 +69,23 @@ const [pizza, setPizza] = useState([]);
 
   return (
 
-      <IonContent className="ion-padding">
-      <h2></h2>
-        <IonGrid className='containerPizza'>
-          <IonRow>
-            {pizza.map((entree: Pizza, index: number) => (
-            <IonCol key={index} className='itemPizza'>
-              <img src={entree.img}></img>
+    <IonContent>
+    <div className='contentStyle'>
+    <div className='containerFriend'>
+        {pizza.map((entree: Pizza, index: number) => (
+            <IonCard key={index} className='itemFriend'>
+              <img className='itemFriend-img' src={entree.img}></img>
               <h2>{entree.title}</h2>
-              <p>{entree.description}</p>
-              <p>{entree.prix}</p>
-              <button onClick={() => dataStorage(entree.title, entree.prix, entree.img)}>Commander</button>
-            </IonCol>
+              <p className='itemFriend-description'>{entree.description}</p>
+              <p>{entree.prix} €</p>
+              <button onClick={() => dataStorage(entree.title, entree.prix, entree.img, entree.id, entree.quantity, entree.description)}>Commander</button>
+            </IonCard>
             ))}
-          </IonRow>
-        </IonGrid>
+        </div>
+      </div>
       </IonContent>
 
-  );
-};
+  )
+}
 
 export default Page1;

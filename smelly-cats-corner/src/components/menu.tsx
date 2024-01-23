@@ -18,9 +18,10 @@ import {
 } from '@ionic/react';
 import "../theme/menu.css";
 
-function Menu() {
 
 
+
+const Menu: React.FC = () => {
 
 
   return (
@@ -32,10 +33,10 @@ function Menu() {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-        <Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
-        <Link className="menuItem" to="/pages/admin">Admin</Link><br/>
-        <Link className="menuItem" to="/pages/Friends">Friends</Link><br/>
-          <Link className="menuItem" to="/pages/GestionFriends">Gestion</Link><br/>
+        <Link className="menuItem" to="/page1">Carte</Link><br></br>
+        <Link className="menuItem" to="/admin">Admin</Link><br/>
+        <Link className="menuItem" to="/Friends">Friends</Link><br/>
+        <Link className="menuItem" to="/GestionFriends">Gestion</Link><br/>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
@@ -49,10 +50,10 @@ function Menu() {
           </IonToolbar>
         </IonHeader>
         <Switch>
-          <Route exact path="/pages/page1" component={Page1}/>
-          <Route exact path="/pages/Friends" component={Friends}/>
-          <Route exact path="/pages/admin" component={Admin} />
-          <Route exact path="/pages/GestionFriends" component={GestionFriends} />
+          <Route exact path="/page1" component={Page1}/>
+          <Route exact path="/Friends" component={Friends}/>
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/GestionFriends" component={GestionFriends} />
         </Switch>
       </IonPage>
     </Router>

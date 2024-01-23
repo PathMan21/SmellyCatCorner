@@ -1,59 +1,97 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Page1 from '../pages/page1';
-import Admin from '../pages/admin';
-import Friends from '../pages/Friends';
-import GestionFriends from '../pages/GestionFriends';
-
 import {
-  IonButton,
   IonContent,
-  IonHeader,
-  IonMenu,
-  IonMenuButton,
-  IonPage,
-  IonTitle,
-  IonItem,
-  IonList,
   IonCard,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonToolbar
+  IonButton,
 } from '@ionic/react';
 import Menu from '../components/menu';
+import "../theme/shop-style.css";
 
-interface Item {
-    title: string;
-    prix: string;
-    img: string;
+interface storedCartItems {
+  id: number;
+  title: string;
+  prix: number;
+  img: string;
+  quantity: number;
 }
 
 function Panier() {
+  const itemNew = sessionStorage.getItem('cart');
+  const storedCartItems = itemNew ? JSON.parse(itemNew) : [];
 
-    const [ panier, setPanier] = useState([]);
+  const [prixHistory, setPrixHistory] = useState<number[]>([]);
+  const [cart, setCart] = useState(storedCartItems);
 
-    // Utilisation de useEffect pour charger les données du stockage local au montage du composant
-    useEffect(() => {
-      const storedCartItems = JSON.parse(localStorage.getItem('cart')) || [];
-      setPanier(storedCartItems);
-    }, []);
+  useEffect(() => {
+    const itemNew = sessionStorage.getItem('cart');
+    const storedCartItems = itemNew ? JSON.parse(itemNew) : [];
+    setPrixHistory(storedCartItems.map(item => item.prix));
 
+    setCart(storedCartItems);
+  }, []);
 
-    return (
-      <IonPage>
-        <IonContent>
-         <Menu/>
-                {panier.map((item, index) => (
-                    <IonCard key={index}>
-                        <IonCardTitle>{item.title}</IonCardTitle>
-                        <IonCardSubtitle>{item.prix}</IonCardSubtitle>
-                    </IonCard>
-                ))}
-         
-        </IonContent>
-      </IonPage>
-    );
-  };
+  const handleQuantity = (index: number) => {
+    const updatedCart = [...cart];
+    updatedCart[index].quantity += 1;
 
+    // Ajouter le prix actuel à l'historique des prix
+    setPrixHistory([...prixHistory, updatedCart[index].prix]);
+
+    // Mettre à jour le prix de l'article
+    updatedCart[index].prix += prixHistory[0];
+
+    setCart(updatedCart);
+    sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+    console.log(prixHistory[0]);
+    console.log(prixHistory);
+
+  }
+
+  const handleDecrease = (index: number) => {
+
+    const updatedCart = [...cart];
+
+    if (updatedCart[index].quantity <= 1) {
+      
+    }
+    else {
+
+      
+    updatedCart[index].quantity -= 1;
+    setPrixHistory([...prixHistory, updatedCart[index].prix]);
+
+    updatedCart[index].prix -= prixHistory[0];
+
+    setCart(updatedCart);
+    sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+    console.log(prixHistory[0]);
+    console.log(prixHistory);
+  }
+
+  }
+
+  return (
+    <IonContent>
+      <div className='contentStyle'>
+        <div className='containerFriend'>
+          {storedCartItems ? (
+            storedCartItems.map((item, index) => (
+              <IonCard key={index} className='itemFriend'>
+                <h2>{item.title}</h2>
+                <p>Prix: {item.prix}</p>
+                <img className="itemFriend-img" src={item.img} alt={item.title} />
+                <p>Quantité : {item.quantity}</p>
+                <IonButton onClick={() => handleQuantity(index)}><strong>+</strong></IonButton>
+                <IonButton onClick={() => handleDecrease(index)}><strong>-</strong></IonButton>
+              </IonCard>
+            ))
+          ) : (
+            <p>Vous n'avez pas encore fait d'achats</p>
+          )}
+        </div>
+      </div>
+    </IonContent>
+  );
+}
 
 export default Panier;

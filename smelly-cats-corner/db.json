@@ -1,20 +1,5 @@
 {
-  "shop": [
-    {
-      "id": "f997",
-      "title": "friends catalogue",
-      "prix": "20$",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "5bc7",
-      "title": "Collection",
-      "prix": "23",
-      "description": "",
-      "img": ""
-    }
-  ],
+  "shop": [],
   "user": [
     {
       "id": "1",

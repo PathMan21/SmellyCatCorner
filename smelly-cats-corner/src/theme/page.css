@@ -1,6 +1,12 @@
+.contentStyle {
+    margin-top: 80px;
+
+}
 
 
-.containerPizza {
+.containerFriend {
+    
+    font-family: "Palatino Linotype";
     text-align: center;
     display: inline-flex;
     flex-direction: row;
@@ -11,58 +17,76 @@
     border-radius: 10px;
 }
 
-.itemPizza {
+.itemFriend-description {
+    font-family: 'Fredericka the Great', serif;
+
+}
+
+.itemFriend button {
+    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    color: white;
+    background-color: rebeccapurple;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.itemFriend button:hover {
+    transition: 0.3s;
+    transform: scale(1.2);
+    background-color: purple;
+}
+
+
+.itemFriend {
     flex-basis: 300px;
     flex-grow: 0;
     flex-shrink: 0;
-    background-color:#8E43F0;
+    background-color: mediumpurple;
     border-radius: 10px;
     margin: 10px 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un meilleur effet visuel */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
-
-
 }
 
 
+.itemFriend h2 {
+    font-family: "Palatino Linotype";
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
 
-.itemPizza img {
+.itemFriend p {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 0 10px 0;
 
-    border-radius: 10px;
-
+}
+.itemFriend label {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 0 10px 0;
 
 }
 
-.itemPizza h2 {
-
-    font-family: 'Lilita One', serif;
-
-}
-
-.itemPizza p {
-    
-    font-family: 'Mukta', sans-serif;
-
-
-}
-
-.itemPizza button {
-    font-family: 'Lilita One', serif;
-    background-color: red;
+.itemFriend-btn {
+    border-radius: 40px;
     color: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-    transition: 0.3s;
-    text-align: center;
-
+    background-color: rebeccapurple;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+    cursor: pointer;
 
 }
 
-.itemPizza button:hover {
+.itemFriend-img {
+    width: auto;
+    border-radius: 10px;
+    height: auto;
 
-    transition: 0.3s;
-    transform: scale(1.2);
 }

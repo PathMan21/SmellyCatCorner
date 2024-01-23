@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 .suppression {
 margin-left: 20px;
 width: auto;
-=======
+}
 
 
 .containerPizza {
@@ -16,6 +16,40 @@ width: auto;
     border-radius: 10px;
 }
 
+.boutonSupprim {
+    margin-right: 10px;
+    margin-left: 10px;
+    transition: 0.2s;
+    padding: 15px;
+    background-color: white;
+
+}
+
+.boutonSupprim:hover {
+    
+    transition: 0.2s;
+    transform: scale(1.5);
+
+}
+
+.boutonModif {
+    
+    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    color: white;
+    background-color: rebeccapurple;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+.boutonModif:hover {
+    
+    transition: 0.3s;
+    transform: scale(1.2);
+
+}
 .itemPizza {
     flex-basis: 300px;
     flex-grow: 0;
@@ -25,53 +59,20 @@ width: auto;
     margin: 10px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un meilleur effet visuel */
     padding: 10px;
->>>>>>> manon
+
 
 
 }
 
-<<<<<<< HEAD
 .suppression button {
     margin-left: 10px;
     background-color: bisque;
     padding: 10px;
     border-radius: 10px;
-=======
-
-
-.itemPizza img {
-
-    border-radius: 10px;
-
-
-}
-
-.itemPizza h2 {
-
-    font-family: 'Lilita One', serif;
-
-}
-
-.itemPizza p {
-    
-    font-family: 'Mukta', sans-serif;
-
-
-}
-
-.itemPizza button {
-    font-family: 'Lilita One', serif;
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: auto;
->>>>>>> manon
     margin-right: auto;
     font-size: 20px;
     transition: 0.3s;
     text-align: center;
-<<<<<<< HEAD
 }
 
 .suppression button:hover {
@@ -79,14 +80,3 @@ width: auto;
     transition: 0.3s;
     transform: scale(1.2);
 }
-=======
-
-
-}
-
-.itemPizza button:hover {
-
-    transition: 0.3s;
-    transform: scale(1.2);
-}
->>>>>>> manon

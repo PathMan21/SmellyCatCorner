@@ -7,6 +7,7 @@ import Panier from "./pages/panier";
 import Friends from './pages/Friends';
 import Details from './pages/Details';
 import Admin from './pages/admin';
+import Menu from './components/menu';
 import './pages/Details.css';
 import GestionFriends from './pages/GestionFriends';
 
@@ -36,26 +37,32 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
+          
           <IonRouterOutlet id="main" className="scroll">
             <Route path="/" exact={true}>
               <Redirect to="/home" />
             </Route>
             <Route path="/home" exact={true}>
               <Home />
+              <Menu/>
             </Route>
             <Route path="/friends" exact={true}>
               <Friends />
+              <Menu/>
             </Route>
             <Route path="/panier" exact={true}>
               <Panier/>
             </Route>
             <Route path="/admin" exact={true}>
               <Admin/>
+              <Menu/>
             </Route>
             <Route path="/details/:id" component={Details} />
             <Details />
+            <Menu/>
             <Route path="/GestionFriends" exact={true}>
               <GestionFriends />
+              <Menu/>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>
