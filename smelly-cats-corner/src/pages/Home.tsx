@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <Menu/>
+
       </IonContent>
     </IonPage>
   );

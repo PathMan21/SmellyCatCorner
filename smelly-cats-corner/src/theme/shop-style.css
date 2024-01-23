@@ -17,30 +17,6 @@
     border-radius: 10px;
 }
 
-.itemFriend-description {
-    font-family: 'Fredericka the Great', serif;
-
-}
-
-.itemFriend button {
-    padding: 15px;
-    margin: 15px;
-    border-radius: 6px;
-    color: white;
-    background-color: rebeccapurple;
-    border-style: none;
-    cursor: pointer;
-    transition: 0.3s;
-
-}
-
-.itemFriend button:hover {
-    transition: 0.3s;
-    transform: scale(1.2);
-    background-color: purple;
-}
-
-
 .itemFriend {
     flex-basis: 300px;
     flex-grow: 0;

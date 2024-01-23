@@ -7,6 +7,7 @@ import GestionFriends from '../pages/GestionFriends';
 
 import {
   IonButtons,
+  IonButton,
   IonContent,
   IonHeader,
   IonMenu,
@@ -15,9 +16,14 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
-import "./menu.css";
+import "../theme/menu.css";
 
-function Menu() {
+
+
+
+const Menu: React.FC = () => {
+
+
   return (
     <Router>
       <IonMenu contentId="main-content">
@@ -27,10 +33,10 @@ function Menu() {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-        <Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
-        <Link className="menuItem" to="/pages/admin">Admin</Link><br/>
-        <Link className="menuItem" to="/pages/Friends">Friends</Link><br/>
-          <Link className="menuItem" to="/pages/GestionFriends">Gestion</Link><br/>
+        <Link className="menuItem" to="/page1">Carte</Link><br></br>
+        <Link className="menuItem" to="/admin">Admin</Link><br/>
+        <Link className="menuItem" to="/Friends">Friends</Link><br/>
+        <Link className="menuItem" to="/GestionFriends">Gestion</Link><br/>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
@@ -40,13 +46,14 @@ function Menu() {
               <IonMenuButton></IonMenuButton>
             </IonButtons>
             <IonTitle className="titreToolbar" slot="start"><h2>Smelly Cat's Corner</h2></IonTitle>
+            <IonButton className="button-style" slot="end" href="/panier"><img src='../src/img/cart.png'/></IonButton>
           </IonToolbar>
         </IonHeader>
         <Switch>
-          <Route exact path="/pages/page1" component={Page1}/>
-          <Route exact path="/pages/Friends" component={Friends}/>
-          <Route exact path="/pages/admin" component={Admin} />
-          <Route exact path="/pages/GestionFriends" component={GestionFriends} />
+          <Route exact path="/page1" component={Page1}/>
+          <Route exact path="/Friends" component={Friends}/>
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/GestionFriends" component={GestionFriends} />
         </Switch>
       </IonPage>
     </Router>
