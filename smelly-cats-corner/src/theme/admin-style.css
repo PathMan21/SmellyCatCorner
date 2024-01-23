@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 .suppression {
-margin-left: 20px;
-width: auto;
-=======
+    margin-left: 20px;
+    width: auto;
+}
 
 
 .containerPizza {
@@ -25,38 +25,29 @@ width: auto;
     margin: 10px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un meilleur effet visuel */
     padding: 10px;
->>>>>>> manon
-
 
 }
 
-<<<<<<< HEAD
+
 .suppression button {
     margin-left: 10px;
     background-color: bisque;
     padding: 10px;
     border-radius: 10px;
-=======
+}
 
 
 .itemPizza img {
-
     border-radius: 10px;
-
 
 }
 
 .itemPizza h2 {
-
     font-family: 'Lilita One', serif;
-
 }
 
 .itemPizza p {
-    
     font-family: 'Mukta', sans-serif;
-
-
 }
 
 .itemPizza button {
@@ -66,12 +57,10 @@ width: auto;
     padding: 10px;
     border-radius: 10px;
     margin-left: auto;
->>>>>>> manon
     margin-right: auto;
     font-size: 20px;
     transition: 0.3s;
     text-align: center;
-<<<<<<< HEAD
 }
 
 .suppression button:hover {
@@ -79,14 +68,10 @@ width: auto;
     transition: 0.3s;
     transform: scale(1.2);
 }
-=======
 
-
-}
 
 .itemPizza button:hover {
-
     transition: 0.3s;
     transform: scale(1.2);
 }
->>>>>>> manon
+
