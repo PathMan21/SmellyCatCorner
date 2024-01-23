@@ -11,6 +11,22 @@
 
 }
 
+.button-style {
+    width: 60px;
+    margin: 5px;
+    transition: 0.4s;
+}
+
+
+
+
+
+.button-style:hover {
+    transition: 0.4s;
+    transform: scale(1.2);
+
+}
+
 .menuItem {
    
     transition-duration: 0.4s;
