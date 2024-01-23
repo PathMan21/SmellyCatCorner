@@ -48,7 +48,6 @@ const App: React.FC = () => {
             </Route>
             <Route path="/friends" exact={true}>
               <Friends />
-              <Menu/>
             </Route>
             <Route path="/panier" exact={true}>
               <Panier/>

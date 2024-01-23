@@ -16,9 +16,16 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
+import "../theme/menu.css";
+
+
+
 import "./menu.css";
 import GestionFriends from "../pages/GestionFriends";
 import ModifierFriend from "../pages/ModifierFriend";
+
+const Menu: React.FC = () => {
+
 
   return (
     <Router>
