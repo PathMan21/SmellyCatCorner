@@ -1,133 +1,72 @@
-import React, { useState } from 'react';
-import './GestionFriends.css';
+import {IonContent, IonHeader, IonPage, IonToolbar, IonImg, IonButton} from '@ionic/react';
+import { useParams } from 'react-router';
 
-const GestionFriends = () => {
-    const [friend, setFriend] = useState({
-        id: Math.random().toString(36).substr(2, 9),
-        name: "test",
-        sex: "male",
-        birthDate: "1990-12-04",
-        hairColor: "test",
-        actorName: "test",
-        photoPath: "test",
-        video: "tst",
-        description: "test"
-    });
 
-    const handleChange = (e) => {
-        console.log("*******************");
-        setFriend({ ...friend, [e.target.name]: e.target.value });
-    };
+import React, { useState, useEffect } from 'react';
+import { IonCol, IonGrid, IonRow } from '@ionic/react';
 
-    const handleFormSubmit = async () => {
+interface Friends {
+    id: number;
+    name: string;
+}
 
-        try {
-            console.log("-------------------");
-            console.log(JSON.stringify(friend));
-            let response = await fetch('http://localhost:3000/friends', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(friend),
-            });
 
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP! statut: ${response.status}`);
+
+const Friends: React.FC = () => {
+
+    const [friends, setFriends] = useState([]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("https://friends-v1ol.onrender.com/friends");
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const jsonData = await response.json();
+                setFriends(jsonData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
 
-            const result = await response.json();
-            console.log(result);
-            console.log("Votre friend a été ajouté avec succès !");
-        } catch (error) {
-            console.error("Erreur lors de l'ajout d'un ami: ", error);
-        }
-    };
+        };
+
+        fetchData(); // Appel de la fonction fetchData() à l'intérieur de useEffect
+
+    }, []); // Tableau de dépendances vide pour un effet se produisant une seule fois au montage
+
+    const { name } = useParams<{ name: string; }>();
+    const modifier = (id) => {
+        document.location = `/ModifierFriend/${id}`;
+    }
 
     return (
-        <div className="form-container">
-            <label>Id du friend :
-            <input
-                type="string"
-                name="id"
-                value={friend.id}
-                onChange={handleChange}
-                placeholder="Id"
-            /></label>
+        <IonPage>
+            <IonHeader>
+                <IonToolbar>
+                    <IonImg className="friends-title" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
+                    <IonButton className="homeButton" href="/Home">Home</IonButton>
+                </IonToolbar>
+            </IonHeader>
 
-            <label>Nom du friend :
-            <input
-                type="text"
-                name="name"
-                value={friend.name}
-                onChange={handleChange}
-                placeholder="Nom"
-            /></label>
-
-            <label>Sexe du friend:
-                <select
-                name="sex"
-                value={friend.sex}
-                onChange={handleChange}
-            >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select></label>
-
-            <label>Date de naissance du friend:
-            <input
-                type="date"
-                name="birthDate"
-                value={friend.birthDate}
-                onChange={handleChange}
-            /></label>
-            <label>Couleur de cheveux du friend:
-            <input
-                type="text"
-                name="hairColor"
-                value={friend.hairColor}
-                onChange={handleChange}
-                placeholder="Couleur de cheveux"
-            /></label>
-            <label>Nom de l'acteur:
-            <input
-                type="text"
-                name="actorName"
-                value={friend.actorName}
-                onChange={handleChange}
-                placeholder="Nom de l'acteur"
-            /></label>
-
-            <label>Photo du friend:
-            <input
-                type="text"
-                name="photoPath"
-                value={friend.photoPath}
-                onChange={handleChange}
-                placeholder="Photo"
-            /></label>
-
-            <label>Video du friend:
-            <input
-                type="text"
-                name="video"
-                value={friend.video}
-                onChange={handleChange}
-                placeholder="Video"
-            /></label>
-
-            <label>Description du friend:
-            <input
-                type="text"
-                name="description"
-                value={friend.description}
-                onChange={handleChange}
-                placeholder="Description"
-            /></label>
-
-            <button className="add-button" onClick={handleFormSubmit}>Ajouter un ami</button>
-        </div>
+            <IonContent className="ion-padding">
+                <IonGrid className='containerFriend'>
+                    <IonRow>
+                        {/* Mapping des données friends et affichage */}
+                        {friends.map((friend, index) => (
+                            <IonCol key={index} className='itemFriend'>
+                                <h2>{friend.name}</h2>
+                                <p><img className="img-friend" src={friend.photoPath}></img></p>
+                                <button onClick={() => modifier(friend.id)}>Modifier le friend</button>
+                            </IonCol>
+                        ))}
+                    </IonRow>
+                </IonGrid>
+            </IonContent>
+        </IonPage>
     );
 };
 
-export default GestionFriends;
+export default Friends;

@@ -9,7 +9,7 @@ import Details from './pages/Details';
 import Admin from './pages/admin';
 import Menu from './components/menu';
 import './pages/Details.css';
-import GestionFriends from './pages/GestionFriends';
+import AddFriend from './pages/AddFriend';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -59,10 +59,8 @@ const App: React.FC = () => {
             </Route>
             <Route path="/details/:id" component={Details} />
             <Details />
-            <Menu/>
-            <Route path="/GestionFriends" exact={true}>
-              <GestionFriends />
-              <Menu/>
+            <Route path="/AddFriend" exact={true}>
+              <AddFriend />
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

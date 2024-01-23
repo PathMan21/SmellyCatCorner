@@ -7,9 +7,7 @@ import { IonCol, IonGrid, IonRow } from '@ionic/react';
 
 interface Friends {
     id: number;
-    title: string;
-    question: string;
-    response: string;
+    name: string;
 }
 
 
@@ -41,7 +39,6 @@ const Friends: React.FC = () => {
 
     const { name } = useParams<{ name: string; }>();
     const details = (id) => {
-        // Utilisez la méthode push de history pour rediriger vers la page des détails des Friends
         document.location = `/Details/${id}`;
     }
 

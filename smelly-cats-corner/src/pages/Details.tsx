@@ -1,15 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Details.css';
-import {IonHeader, IonImg, IonToolbar} from "@ionic/react";
 
 const retour = () => {
-    // Utilisez la méthode push de history pour rediriger vers la page des détails des Friends
     document.location = `/Friends`;
 }
 const Details = () => {
     const { id } = useParams();
     const [friendDetails, setFriendDetails] = useState(null);
+
+    const removeFriend = async () => {
+        try {
+            const response = await fetch(`https://friends-v1ol.onrender.com/friends/${id}`, {
+                method: 'DELETE',
+            });
+            if (!response.ok) {
+                throw new Error('Échec de la suppression du friend');
+            }
+
+            // Redirection de l'utilisateur vers la liste des friends après la suppression
+            document.location = '/Friends';
+        } catch (error) {
+            console.error('Erreur lors de la suppression du friend :', error);
+        }
+    };
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -24,6 +38,7 @@ const Details = () => {
                 console.error('Error fetching friend details:', error);
             }
         };
+
 
         fetchDetails();
     }, [id]);
@@ -41,6 +56,8 @@ const Details = () => {
                     <div className="friend-description"> {friendDetails.description}</div>
                     <div className="friend-video"><a target="_new" href={friendDetails.video}>Vidéo</a></div>
                     <button className="friend-button" onClick={retour}>Retourner à la page des friends</button>
+                    <button className="friend-button" onClick={removeFriend}>Supprimer ce friend</button>
+
                 </div>
             ) : (
                 <p>Friend non trouvé</p>
