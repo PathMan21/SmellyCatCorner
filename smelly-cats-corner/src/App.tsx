@@ -41,13 +41,23 @@ const App: React.FC = () => {
           <IonRouterOutlet id="main" className="scroll">
             <Route path="/" exact={true}>
               <Redirect to="/home" />
+              <Menu/>
             </Route>
             <Route path="/home" exact={true}>
-              <Home/>
+              <Home />
               <Menu/>
             </Route>
             <Route path="/friends" exact={true}>
               <Friends />
+              <Menu/>
+            </Route>
+            <Route path="/panier" exact={true}>
+              <Panier/>
+              <Menu/>
+            </Route>
+            <Route path="/admin" exact={true}>
+              <Admin/>
+              <Menu/>
             </Route>
             <Route path="/panier" exact={true}>
               <Panier/>
@@ -58,8 +68,11 @@ const App: React.FC = () => {
             </Route>
             <Route path="/details/:id" component={Details} />
             <Details />
-            <Route path="/AddFriend" exact={true}>
-              <AddFriend />
+
+            <Menu/>
+            <Route path="/GestionFriends" exact={true}>
+              
+              <Menu/>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>
