@@ -37,6 +37,8 @@ const [panier, setPanier] = useState([]);
   };
     console.log('Commande effectuée pour :', titleParam, 'au prix de :', prixParam, 'avec l"image :', imgParam, "index : ", indexParam, "quantity : ", quantityParam);
 
+    
+
     const updatePanier = [...panier, item];
     setPanier(updatePanier);
 

@@ -43,7 +43,7 @@ const App: React.FC = () => {
               <Redirect to="/home" />
             </Route>
             <Route path="/home" exact={true}>
-              <Home />
+              <Home/>
               <Menu/>
             </Route>
             <Route path="/friends" exact={true}>
