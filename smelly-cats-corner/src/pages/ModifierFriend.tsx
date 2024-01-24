@@ -1,70 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+const retour = () => {
+    document.location = `/GestionFriends`;
+}
 const ModifierFriend = () => {
     const { id } = useParams();
-    const [ami, setAmi] = useState({});
-    const [modifications, setModifications] = useState({}); // État pour suivre les modifications des champs
+    const [friendDetails, setFriendDetails] = useState(null);
+
 
     useEffect(() => {
-        // Récupérez les détails du friend depuis l'API en utilisant l'ID
-        const fetchFriendDetails = async () => {
+        const fetchDetails = async () => {
             try {
                 const response = await fetch(`https://friends-v1ol.onrender.com/friends/${id}`);
                 if (!response.ok) {
-                    throw new Error('Échec de la récupération des détails du friend');
+                    throw new Error('Failed to fetch friend details');
                 }
-                const friendDetails = await response.json();
-                setAmi(friendDetails);
-                setModifications(friendDetails);
+                const friend = await response.json();
+                setFriendDetails(friend);
             } catch (error) {
-                console.error('Erreur lors de la récupération des détails du friend :', error);
+                console.error('Error fetching friend details:', error);
             }
         };
 
-        fetchFriendDetails();
+
+        fetchDetails();
     }, [id]);
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setModifications({ ...friend, [name]: value });
-    };
-
-    const handleUpdateFriend = async () => {
-        try {
-            const response = await fetch(`https://friends-v1ol.onrender.com/friends/${id}`, {
-                method: 'PUT', // Utilisez PUT
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(friend),
-            });
-            if (!response.ok) {
-                throw new Error('Échec de la mise à jour du friend');
-            }
-            // Redirection de l'utilisateur après une mise à jour réussie du friend
-            document.location = `/Details/${id}`;
-        } catch (error) {
-            console.error('Erreur lors de la mise à jour du friend :', error);
-        }
-    };
 
     return (
         <div>
-            <h2>Modifier Friend</h2>
-            <form onSubmit={handleUpdateFriend}>
-                <div>
-                    <label>Nom</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={friend.name || ''}
-                        onChange={handleInputChange}
-                    />
-                </div>
+            {friendDetails ? (
+                <div className="details-container">
+                    <div className="friend-name">{friendDetails.name}</div>
+                    <img src={friendDetails.photoPath} alt={`Photo de ${friendDetails.name}`} className="friend-photo" /><br />
+                    <button className="friend-button" onClick={retour}>Retourner à la page de gestion des Friends</button>
 
-                <button type="submit">Mettre à jour</button>
-            </form>
+                </div>
+            ) : (
+                <p>Friend non trouvé</p>
+            )}
         </div>
     );
 };

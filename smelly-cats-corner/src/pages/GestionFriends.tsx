@@ -1,7 +1,6 @@
 import {IonContent, IonHeader, IonPage, IonToolbar, IonImg, IonButton} from '@ionic/react';
 import { useParams } from 'react-router';
 
-
 import React, { useState, useEffect } from 'react';
 import { IonCol, IonGrid, IonRow } from '@ionic/react';
 
@@ -12,7 +11,7 @@ interface Friends {
 
 
 
-const Friends: React.FC = () => {
+const GestionFriends: React.FC = () => {
 
     const [friends, setFriends] = useState([]);
 
@@ -42,6 +41,23 @@ const Friends: React.FC = () => {
         document.location = `/ModifierFriend/${id}`;
     }
 
+    const removeFriend = async (friendId) => {
+        try {
+            const response = await fetch(`https://friends-v1ol.onrender.com/friends/${friendId}`, {
+                method: 'DELETE',
+            });
+            if (!response.ok) {
+                throw new Error('Échec de la suppression du friend');
+            }
+
+            // Redirection de l'utilisateur vers la liste des friends après la suppression
+            document.location = '/GestionFriends';
+        } catch (error) {
+            console.error('Erreur lors de la suppression du friend :', error);
+        }
+    };
+
+
     return (
         <IonPage>
             <IonHeader>
@@ -59,7 +75,9 @@ const Friends: React.FC = () => {
                             <IonCol key={index} className='itemFriend'>
                                 <h2>{friend.name}</h2>
                                 <p><img className="img-friend" src={friend.photoPath}></img></p>
-                                <button onClick={() => modifier(friend.id)}>Modifier le friend</button>
+                                <button onClick={() => modifier(friend.id)}>Modifier</button>
+                                <button className="friend-button" onClick={() => removeFriend(friend.id)}>Supprimer ce friend</button>
+
                             </IonCol>
                         ))}
                     </IonRow>
@@ -69,4 +87,4 @@ const Friends: React.FC = () => {
     );
 };
 
-export default Friends;
+export default GestionFriends;
