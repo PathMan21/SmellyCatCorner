@@ -4,7 +4,7 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 import Menu from '../components/menu';
 import React from "react";
-import Accueil from './accueil';
+import Accueil from './Accueil';
 
 const Home: React.FC = () => {
 
