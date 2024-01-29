@@ -1,14 +1,4 @@
 
-.suppression {
-<<<<<<< HEAD
-margin-left: 20px;
-width: auto;
-=======
-    margin-left: 20px;
-    width: auto;
->>>>>>> cbd70b8a9200a9bd840ada88eb63fb1df6743ed3
-}
-
 
 .containerPizza {
     text-align: center;
@@ -64,25 +54,14 @@ width: auto;
     margin: 10px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un meilleur effet visuel */
     padding: 10px;
-<<<<<<< HEAD
-
-
-
 }
 
-=======
-
-}
-
-
->>>>>>> cbd70b8a9200a9bd840ada88eb63fb1df6743ed3
 .suppression button {
     margin-left: 10px;
     background-color: bisque;
     padding: 10px;
     border-radius: 10px;
-<<<<<<< HEAD
-=======
+
 }
 
 
@@ -106,7 +85,7 @@ width: auto;
     padding: 10px;
     border-radius: 10px;
     margin-left: auto;
->>>>>>> cbd70b8a9200a9bd840ada88eb63fb1df6743ed3
+
     margin-right: auto;
     font-size: 20px;
     transition: 0.3s;
@@ -118,8 +97,7 @@ width: auto;
     transition: 0.3s;
     transform: scale(1.2);
 }
-<<<<<<< HEAD
-=======
+
 
 
 .itemPizza button:hover {
@@ -127,4 +105,4 @@ width: auto;
     transform: scale(1.2);
 }
 
->>>>>>> cbd70b8a9200a9bd840ada88eb63fb1df6743ed3
+

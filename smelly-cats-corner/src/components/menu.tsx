@@ -36,11 +36,11 @@ const Menu: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-        <Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
-        <Link className="menuItem" to="/pages/admin">Admin</Link><br/>
-        <Link className="menuItem" to="/pages/Friends">Friends</Link><br/>
-          <Link className="menuItem" to="/pages/AddFriend">Ajouter un friend</Link><br/>
-          <Link className="menuItem" to="/pages/GestionFriends">Gérer les friends</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/admin">Admin</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/Friends">Friends</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/AddFriend">Ajouter un friend</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/GestionFriends">Gérer les friends</Link><br/>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">

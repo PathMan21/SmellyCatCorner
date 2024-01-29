@@ -1,0 +1,63 @@
+/* accueil-style.css */
+
+@font-face {
+    font-family: 'Minus CRE';
+    src: url('../src/fonts/MINUS_CRE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.accueil {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Minus CRE';
+}
+
+.gif-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.imageAccueil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container {
+    
+    font-family: 'Minus CRE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    z-index: 1;
+}
+
+.text-container h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+
+.text-container p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.gif-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); 
+}
