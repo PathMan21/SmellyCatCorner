@@ -55,7 +55,7 @@ body, html {
   color: rgb(0, 0, 0); 
   font-family: 'Minus CRE', sans-serif; /* Utilisez le nom de la police exact comme défini dans votre fichier de police */
   text-align: center;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .text-container h2 {

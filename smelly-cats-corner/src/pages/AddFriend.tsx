@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Camera, CameraResultType } from '@capacitor/camera';
+import React, { useState, useEffect } from 'react';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 import './AddFriend.css';
 
@@ -18,23 +18,18 @@ const AddFriend = () => {
         description: ""
 
     });
-// Fonction pour prendre une photo
-    const takePhoto = async () => {
-        try {
-            const image = await Camera.getPhoto({
-                quality: 100,
-                allowEditing: false,
-                resultType: CameraResultType.Base64
-            });
 
-            // image.baseString64 contiendra le chemin de l'image que vous pouvez utiliser comme src d'une balise img
-            const imageUrl = image.base64String;
+        // Vérifier et demander les permissions de notification au chargement du composant
+        useEffect(() => {
+        const checkNotificationPermission = async () => {
+            const status = await LocalNotifications.checkPermissions();
+            if (status.display === 'prompt') {
+                await LocalNotifications.requestPermissions();
+            }
+        };
+        checkNotificationPermission();
+    }, []);
 
-            // Vous pouvez maintenant attribuer imageUrl à la source d'une balise img ou effectuer d'autres actions avec l'image capturée
-        } catch (error) {
-            console.error('Erreur lors de la capture de l\'image:', error);
-        }
-    };
 
     const handleChange = (e) => {
         console.log("*******************");
@@ -59,9 +54,22 @@ const AddFriend = () => {
             }
 
             const result = await response.json();
-            console.log(result);
             console.log("Votre friend a été ajouté avec succès !");
             setSuccessMessage("Votre friend a été ajouté avec succès !");
+
+            // Envoyer une notification de succès
+            await LocalNotifications.schedule({
+                notifications: [
+                    {
+                        title: "Succès",
+                        body: "Votre friend a été ajouté avec succès !",
+                        id: 1,
+                        schedule: { at: new Date(Date.now() + 1000) }, // 1 seconde plus tard
+                    },
+                ],
+            });
+            setSuccessMessage("Votre ami a été ajouté avec succès.");
+
         } catch (error) {
             console.error("Erreur lors de l'ajout d'un ami: ", error);
         }
@@ -93,8 +101,8 @@ const AddFriend = () => {
                 value={friend.sex}
                 onChange={handleChange}
             >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
             </select></label>
 
             <label>Date de naissance du friend:
@@ -130,9 +138,6 @@ const AddFriend = () => {
                     onChange={handleChange}
                     placeholder="Photo"
                 />
-                <button className="add-button" type="button" onClick={takePhoto}>
-                    Prendre une photo
-                </button>
             </div>
 
             <label>Video du friend:

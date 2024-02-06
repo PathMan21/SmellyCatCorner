@@ -10,8 +10,6 @@ interface Friends {
     name: string;
 }
 
-
-
 const Friends: React.FC = () => {
 
         const [friends, setFriends] = useState([]);
