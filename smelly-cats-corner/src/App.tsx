@@ -9,7 +9,9 @@ import Details from './pages/Details';
 import Admin from './pages/admin';
 import Menu from './components/menu';
 import './pages/Details.css';
+import AddFriend from './pages/AddFriend';
 import GestionFriends from './pages/GestionFriends';
+import ModifierFriend from "./pages/ModifierFriend";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,6 +31,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import modifierFriend from "./pages/ModifierFriend";
 
 setupIonicReact();
 
@@ -41,6 +44,7 @@ const App: React.FC = () => {
           <IonRouterOutlet id="main" className="scroll">
             <Route path="/" exact={true}>
               <Redirect to="/home" />
+              <Menu/>
             </Route>
             <Route path="/home" exact={true}>
               <Home />
@@ -52,17 +56,28 @@ const App: React.FC = () => {
             </Route>
             <Route path="/panier" exact={true}>
               <Panier/>
+              <Menu/>
             </Route>
             <Route path="/admin" exact={true}>
               <Admin/>
               <Menu/>
             </Route>
-            <Route path="/details/:id" component={Details} />
+            <Route path="/panier" exact={true}>
+              <Panier/>
+            </Route>
+            <Route path="/admin" exact={true}>
+              <Admin/>
+              <Menu/>
+            </Route>
+            <Route path="/Details/:id" component={Details} />
             <Details />
-            <Menu/>
+            <Route path="/ModifierFriend/:id" component={ModifierFriend} />
+            <ModifierFriend />
+            <Route path="/AddFriend" exact={true}>
+              <AddFriend />
+            </Route>
             <Route path="/GestionFriends" exact={true}>
               <GestionFriends />
-              <Menu/>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

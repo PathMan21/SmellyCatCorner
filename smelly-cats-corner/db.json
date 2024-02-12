@@ -1,11 +1,12 @@
 {
-  "shop": [],
-  "user": [
+  "shop": [
     {
-      "id": "1",
-      "nom": "Lafosse",
-      "prenom": "Manon",
-      "PanierID": []
+      "title": "collection",
+      "prix": 30,
+      "description": "",
+      "img": "",
+      "quantity": 1,
+      "id": "20a8"
     }
   ]
 }

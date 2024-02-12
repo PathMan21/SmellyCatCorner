@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Details.css';
-import {IonHeader, IonImg, IonToolbar} from "@ionic/react";
 
 const retour = () => {
-    // Utilisez la méthode push de history pour rediriger vers la page des détails des Friends
     document.location = `/Friends`;
 }
 const Details = () => {
     const { id } = useParams();
     const [friendDetails, setFriendDetails] = useState(null);
+
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -24,6 +23,7 @@ const Details = () => {
                 console.error('Error fetching friend details:', error);
             }
         };
+
 
         fetchDetails();
     }, [id]);

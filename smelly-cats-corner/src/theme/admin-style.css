@@ -1,9 +1,4 @@
 
-.suppression {
-margin-left: 20px;
-width: auto;
-}
-
 
 .containerPizza {
     text-align: center;
@@ -59,9 +54,6 @@ width: auto;
     margin: 10px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un meilleur effet visuel */
     padding: 10px;
-
-
-
 }
 
 .suppression button {
@@ -69,6 +61,31 @@ width: auto;
     background-color: bisque;
     padding: 10px;
     border-radius: 10px;
+
+}
+
+
+.itemPizza img {
+    border-radius: 10px;
+
+}
+
+.itemPizza h2 {
+    font-family: 'Lilita One', serif;
+}
+
+.itemPizza p {
+    font-family: 'Mukta', sans-serif;
+}
+
+.itemPizza button {
+    font-family: 'Lilita One', serif;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: auto;
+
     margin-right: auto;
     font-size: 20px;
     transition: 0.3s;
@@ -80,3 +97,12 @@ width: auto;
     transition: 0.3s;
     transform: scale(1.2);
 }
+
+
+
+.itemPizza button:hover {
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+
+

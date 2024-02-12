@@ -1,0 +1,67 @@
+/*Style du container*/
+.form-edit-container {
+    justify-content: center;
+    display: flex;
+    padding: 20px 0;
+}
+
+/* Style du formulaire */
+.form-edit {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: mediumpurple;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* Style des labels */
+.form-edit label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style des champs de saisie et des sélecteurs */
+.form-edit input[type="text"],
+.form-edit input[type="date"],
+.form-edit select,
+.form-edit textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0px 25px 0px;
+    border-radius: 4px;
+    color: #272727;
+    background-color: #C9B2F4;
+}
+
+/* Style du textarea */
+.form-edit textarea {
+    height: 150px;
+    resize: horizontal;
+}
+
+/* Style du bouton de soumission */
+.form-edit button {
+    padding: 15px;
+    margin: 20px 7px;
+    border-radius: 6px;
+    background-color: rebeccapurple;
+    border-style: none;
+    cursor: pointer;
+    font-size: 15px;
+    height: 70px;
+    width: 250px;
+}
+
+.form-edit button:hover {
+    transition: 0.3s;
+    transform: scale(1.2);
+    background-color: purple;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+}
+

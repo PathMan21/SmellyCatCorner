@@ -7,13 +7,12 @@
     border-radius: 10px;
     box-shadow: 0 0 15px #5F34B3;
     background-color: mediumpurple;
-    width: 500px;
+    width: 85%;
     margin: 60px auto;
 }
 
 /* Style pour la photo de l'ami */
 .friend-photo {
-    max-width: 400px; /* Limite la taille de l'image */
     border-radius: 10px; /* Coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
     margin-bottom: 20px; /* Espace sous l'image */
@@ -60,7 +59,7 @@
 
 .friend-button{
     padding: 15px;
-    margin: 15px;
+    margin: 20px;
     border-radius: 6px;
     background-color: rebeccapurple;
     border-style: none;
