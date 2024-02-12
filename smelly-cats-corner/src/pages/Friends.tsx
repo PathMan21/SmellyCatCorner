@@ -45,7 +45,7 @@ const Friends: React.FC = () => {
             <IonHeader>
                 <IonToolbar>
                     <IonImg className="friends-title" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
-                    <IonButton className="homeButton" href="/Home">Home</IonButton>
+                    <IonButton className="homeButton" href="/">Revenir</IonButton>
                 </IonToolbar>
             </IonHeader>
 

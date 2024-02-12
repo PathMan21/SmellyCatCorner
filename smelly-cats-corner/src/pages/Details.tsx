@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { IonPage, IonHeader, IonToolbar, IonImg, IonButton, IonContent } from '@ionic/react';
+
 import { useParams } from 'react-router-dom';
 import './Details.css';
 
@@ -29,7 +31,14 @@ const Details = () => {
     }, [id]);
 
     return (
-        <div>
+        <IonPage>
+        <IonHeader>
+                <IonToolbar>
+                    <IonImg className="friends-title" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
+                    <IonButton className="homeButton" href="/Friends">Revenir</IonButton>
+                </IonToolbar>
+            </IonHeader>
+        <IonContent>
             {friendDetails ? (
                 <div className="details-container">
                     <div className="friend-name">{friendDetails.name}</div>
@@ -45,7 +54,8 @@ const Details = () => {
             ) : (
                 <p>Friend non trouvé</p>
             )}
-        </div>
+        </IonContent>
+        </IonPage>
     );
 };
 

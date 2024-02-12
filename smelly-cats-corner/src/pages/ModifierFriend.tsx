@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './ModifierFriend.css';
+import { IonPage, IonHeader, IonToolbar, IonImg, IonButton, IonContent } from '@ionic/react';
+
 
 const retour = () => {
     document.location = `/GestionFriends`;
@@ -66,6 +68,14 @@ const ModifierFriend = () => {
     };
 
     return (
+        <IonPage>
+        <IonHeader>
+                <IonToolbar>
+                    <IonImg className="friends-title" src='https://friends-v1ol.onrender.com/img/friends.webp'></IonImg>
+                    <IonButton className="homeButton" href="/GestionFriends">Revenir</IonButton>
+                </IonToolbar>
+            </IonHeader>
+        <IonContent>
         <div className="form-edit-container">
             {friendDetails && (
                 <form onSubmit={handleSubmit} className="form-edit">
@@ -137,6 +147,8 @@ const ModifierFriend = () => {
                 </form>
             )}
         </div>
+        </IonContent>
+        </IonPage>
     );
 };
 
