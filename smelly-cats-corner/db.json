@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "shop": [],
   "user": [
     {
@@ -6,6 +7,16 @@
       "nom": "Lafosse",
       "prenom": "Manon",
       "PanierID": []
+=======
+  "shop": [
+    {
+      "id": "85d4",
+      "title": "jfiriueriojioejirejo",
+      "prix": 20,
+      "description": "uihuihruiruhrui",
+      "img": "",
+      "quantity": 1
+>>>>>>> 3250658e1c2467a00e2f6aaff2005c6c98163a21
     }
   ]
 }
