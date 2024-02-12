@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {
   IonContent,
-  IonCard,
+  IonHeader,
+  IonTitle,
   IonButton,
+  IonButtons,
+  IonMenu,
+  IonToolbar,
+  IonPage,
+  IonCard,
 } from '@ionic/react';
 import Menu from '../components/menu';
 import "../theme/shop-style.css";
@@ -20,15 +26,11 @@ function Panier() {
   const storedCartItems = itemNew ? JSON.parse(itemNew) : [];
 
   const [prixHistory, setPrixHistory] = useState<number[]>([]);
-  const [cart, setCart] = useState(storedCartItems);
+  const [cart, setCart] = useState<storedCartItems[]>(storedCartItems);
 
   useEffect(() => {
-    const itemNew = sessionStorage.getItem('cart');
-    const storedCartItems = itemNew ? JSON.parse(itemNew) : [];
-    setPrixHistory(storedCartItems.map(item => item.prix));
-
-    setCart(storedCartItems);
-  }, []);
+    setPrixHistory(cart.map(item => item.prix));
+  }, [cart]);
 
   const handleQuantity = (index: number) => {
     const updatedCart = [...cart];
@@ -38,59 +40,57 @@ function Panier() {
     setPrixHistory([...prixHistory, updatedCart[index].prix]);
 
     // Mettre à jour le prix de l'article
-    updatedCart[index].prix += prixHistory[0];
+    updatedCart[index].prix += prixHistory[prixHistory.length - 1];
 
     setCart(updatedCart);
     sessionStorage.setItem('cart', JSON.stringify(updatedCart));
-    console.log(prixHistory[0]);
-    console.log(prixHistory);
-
   }
 
   const handleDecrease = (index: number) => {
-
     const updatedCart = [...cart];
 
     if (updatedCart[index].quantity <= 1) {
-      
+      // Ne pas réduire la quantité si elle est déjà de 1
+      return;
     }
-    else {
 
-      
     updatedCart[index].quantity -= 1;
-    setPrixHistory([...prixHistory, updatedCart[index].prix]);
 
-    updatedCart[index].prix -= prixHistory[0];
+    // Mettre à jour le prix de l'article
+    updatedCart[index].prix -= prixHistory[prixHistory.length - 1];
 
     setCart(updatedCart);
     sessionStorage.setItem('cart', JSON.stringify(updatedCart));
-    console.log(prixHistory[0]);
-    console.log(prixHistory);
-  }
-
   }
 
   return (
-    <IonContent>
-      <div className='contentStyle'>
-        <div className='containerFriend'>
-          {storedCartItems ? (
-            storedCartItems.map((item, index) => (
-              <IonCard key={index} className='itemFriend'>
-                <h2>{item.title}</h2>
-                <p>Prix: {item.prix}</p>
-                <img className="itemFriend-img" src={item.img} alt={item.title} />
-                <p>Quantité : {item.quantity}</p>
-                <IonButton onClick={() => handleQuantity(index)}><strong>+</strong></IonButton>
-                <IonButton onClick={() => handleDecrease(index)}><strong>-</strong></IonButton>
-              </IonCard>
-            ))
-          ) : (
-            <p>Vous n'avez pas encore fait d'achats</p>
-          )}
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonButton className="button-style" slot="start" href="/Home"><img src='../src/img/cart.png' alt="cart"/></IonButton>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <div className='contentStyle'>
+          <div className='containerFriend'>
+            {cart.length > 0 ? (
+              cart.map((item, index) => (
+                <IonCard key={index} className='itemFriend'>
+                  <h2>{item.title}</h2>
+                  <p>Prix: {item.prix}</p>
+                  <img className="itemFriend-img" src={item.img} alt={item.title} />
+                  <p>Quantité : {item.quantity}</p>
+                  <IonButton onClick={() => handleQuantity(index)}><strong>+</strong></IonButton>
+                  <IonButton onClick={() => handleDecrease(index)}><strong>-</strong></IonButton>
+                </IonCard>
+              ))
+            ) : (
+              <p>Vous n'avez pas encore fait d'achats</p>
+            )}
+          </div>
         </div>
-      </div>
-    </IonContent>
+      </IonContent>
+    </IonPage>
   );
 }
 
