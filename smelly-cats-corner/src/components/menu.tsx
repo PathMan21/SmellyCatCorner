@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Page1 from '../pages/page1';
 import Admin from '../pages/admin';
 import Friends from '../pages/Friends';
-import GestionFriends from '../pages/GestionFriends';
+import AddFriend from '../pages/AddFriend';
 
 import {
   IonButtons,
@@ -20,6 +20,9 @@ import "../theme/menu.css";
 
 
 
+import "./menu.css";
+import GestionFriends from "../pages/GestionFriends";
+import ModifierFriend from "../pages/ModifierFriend";
 
 const Menu: React.FC = () => {
 
@@ -33,10 +36,11 @@ const Menu: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-        <Link className="menuItem" to="/page1">Carte</Link><br></br>
-        <Link className="menuItem" to="/admin">Admin</Link><br/>
-        <Link className="menuItem" to="/Friends">Friends</Link><br/>
-        <Link className="menuItem" to="/GestionFriends">Gestion</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/page1">Carte</Link><br></br>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/admin">Admin</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/Friends">Friends</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/AddFriend">Ajouter un friend</Link><br/>
+        <img className="catLogo" src="../src/img/catlogo.jpg" alt="catlogo"></img><Link className="menuItem" to="/pages/GestionFriends">Gérer les friends</Link><br/>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
@@ -50,10 +54,12 @@ const Menu: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <Switch>
-          <Route exact path="/page1" component={Page1}/>
-          <Route exact path="/Friends" component={Friends}/>
-          <Route exact path="/admin" component={Admin} />
-          <Route exact path="/GestionFriends" component={GestionFriends} />
+          <Route exact path="/pages/page1" component={Page1}/>
+          <Route exact path="/pages/Friends" component={Friends}/>
+          <Route exact path="/pages/admin" component={Admin} />
+          <Route exact path="/pages/AddFriend" component={AddFriend} />
+          <Route exact path="/pages/GestionFriends" component={GestionFriends} />
+          <Route exact path="/pages/ModifierFriend" component={ModifierFriend} />
         </Switch>
       </IonPage>
     </Router>
