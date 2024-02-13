@@ -35,7 +35,7 @@ Pour exécuter l'application Smelly Cat's Corner sur votre propre appareil, suiv
 2. Assurez-vous d'avoir Node.js installé sur votre ordinateur.
 
 3. Installez les dépendances en exécutant la commande suivante dans le répertoire du projet : `npm install`
-4. Lancez l'application en utilisant Ionic CLI : `ionic serve`
+4. Lancez l'application en utilisant Ionic CLI : `npm start`
 
 5. L'application devrait maintenant être accessible à l'adresse `http://localhost:8100` dans votre navigateur.
 
